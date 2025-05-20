@@ -4,20 +4,19 @@ import {useEffect} from "react";
 import {movieSliceActions} from "../../redux/slices/movie-slice/movieSlice.tsx";
 
 const MoviesComponents = () => {
-const {movie, landing, error} = useAppSelector(({movieSlice}) => movieSlice);
+const {movie, loading, error} = useAppSelector(({movieSlice}) => movieSlice);
 const dispatch = useAppDispatch();
     useEffect(() => {
         dispatch(movieSliceActions.loadMovie())
     }, [dispatch]);
     return (
         <div>
-            {
-                landing
-            }
+            {loading && <div>Завантаження...</div>}
+            {error && <div>Помилка: {error}</div>}
             {
                 movie.map(item => (<div>{item.id} {item.title}</div>))
             }
-            {error}
+
         </div>
     );
 };

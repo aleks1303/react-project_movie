@@ -4,13 +4,13 @@ import {movieService} from "../../../services/api.service.tsx";
 
 type movieSliceType = {
     movie: IMovie[],
-    landing:boolean,
+    loading:boolean,
     error: string | null
 }
 
 const initMovieSlice: movieSliceType = {
     movie: [],
-    landing:false,
+    loading:false,
     error: null
 }
 
@@ -33,16 +33,16 @@ export const movieSlice = createSlice({
     reducers: {},
     extraReducers: builder => builder
         .addCase(loadMovie.pending, (state) => {
-            state.landing = true
+            state.loading = true
             state.error = null
         })
         .addCase(loadMovie.fulfilled, (state, action: PayloadAction<IMovie[]>) => {
-            state.landing = false
+            state.loading = false
             state.movie = action.payload
 
         })
         .addCase(loadMovie.rejected, (state, action) => {
-            state.landing = false
+            state.loading = false
             state.error = action.error.message || "Unknown error"
         })
 });
