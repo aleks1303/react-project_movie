@@ -12,8 +12,26 @@ const movieService = {
     getAllMovie: async ():Promise<IMovie[]> => {
      const {data: {results}} = await axiosInstance.get(`/discover/movie?api_key=${apiKey}`)
         return results
+    },
+    getMovieById: async (id:number):Promise<IMovie> => {
+      return await axiosInstance.get(`/movie/${id}?api_key=${apiKey}`)
     }
 }
+
+
+
+
+// const movieService = {
+//     getAllMovie: async (): Promise<IMovie[]> => {
+//         const { data } = await axiosInstance.get(`/discover/movie`, {
+//             params: {
+//                 api_key: apiKey
+//             }
+//         });
+//         return data.results;
+//     }
+// };
+//
 
 // const baseUrl = '/discover/movie'
 //
