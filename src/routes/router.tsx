@@ -11,7 +11,8 @@ const router = createBrowserRouter([
             {path: '*', element: <NotFoundPage/> }
 
         ])
-    }
+    },
+
 ])
 export {
     router

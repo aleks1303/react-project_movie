@@ -1,5 +1,6 @@
 import type {IMovie} from "../models/IMovie.ts";
 import axios from "axios";
+import type {IGenre} from "../models/IGenre.ts";
 
 const apiKey = import.meta.env.VITE_TMDB_API_KEY
 
@@ -9,13 +10,30 @@ const axiosInstance = axios.create({
 })
 
 const movieService = {
-    getAllMovie: async ():Promise<IMovie[]> => {
-     const {data: {results}} = await axiosInstance.get(`/discover/movie?api_key=${apiKey}`)
+
+    getAllMovies: async (page: string, genreId?: string): Promise<IMovie[]> => {
+        const url = genreId
+            ? `/discover/movie?page=${page}&with_genres=${genreId}&api_key=${apiKey}`
+            : `/discover/movie?page=${page}&api_key=${apiKey}`;
+
+        const { data: { results } } = await axiosInstance.get(url);
+        return results;
+    },
+    getAllMovie: async (page: string):Promise<IMovie[]> => {
+     const {data: {results}} = await axiosInstance.get(`/discover/movie?page=${page}&api_key=${apiKey}`)
         return results
     },
     getMovieById: async (id:number):Promise<IMovie> => {
       return await axiosInstance.get(`/movie/${id}?api_key=${apiKey}`)
-    }
+    },
+    getAllGenres: async (): Promise<IGenre[]> => {
+        const { data: {genres} } = await axiosInstance.get(`/genre/movie/list?api_key=${apiKey}`);
+        return genres;
+    },
+    getMoviesByGenre: async (genreId: number): Promise<IMovie[]> => {
+        const { data: {results} } = await axiosInstance.get(`/discover/movie?with_genres=${genreId}&api_key=${apiKey}`);
+        return results;
+    },
 }
 
 
