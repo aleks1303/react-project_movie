@@ -19,10 +19,6 @@ const movieService = {
         const { data: { results } } = await axiosInstance.get(url);
         return results;
     },
-    getAllMovie: async (page: string):Promise<IMovie[]> => {
-     const {data: {results}} = await axiosInstance.get(`/discover/movie?page=${page}&api_key=${apiKey}`)
-        return results
-    },
     getMovieById: async (id:number):Promise<IMovie> => {
       return await axiosInstance.get(`/movie/${id}?api_key=${apiKey}`)
     },
@@ -34,7 +30,16 @@ const movieService = {
         const { data: {results} } = await axiosInstance.get(`/discover/movie?with_genres=${genreId}&api_key=${apiKey}`);
         return results;
     },
+    searchMovieByQuery: async (query: string, page: string) => {
+      const {data: {results}} =  await axiosInstance.get(`/search/movie?query=${query}&page=${page}&api_key=${apiKey}`)
+        return results
+    }
 }
+export {
+    movieService
+}
+
+
 
 
 
@@ -61,9 +66,7 @@ const movieService = {
 //     }
 // }
 
-export {
-    movieService
-}
+
 
 // const apiKey = process.env.REACT_APP_TMDB_API_KEY;
 // const baseURL = 'https://api.themoviedb.org/3';
