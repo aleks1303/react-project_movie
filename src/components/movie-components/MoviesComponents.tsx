@@ -16,12 +16,20 @@ const MoviesComponents = () => {
     }, [genreId, page, dispatch]);
 
     return (
-        <div>
-            {loading && <p>Завантаження...</p>}
-            {error && <div>Помилка: {error}</div>}
-            {movie.map(item => (<MovieComponent key={item.id} item={item}/>))}
 
-        </div>
+
+        <>
+            <div>
+                {loading && <p>Завантаження...</p>}
+                {error && <div>Помилка: {error}</div>}
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+
+                {movie.map(item => (<MovieComponent key={item.id} item={item}/>))}
+
+            </div>
+        </>
     );
 };
 

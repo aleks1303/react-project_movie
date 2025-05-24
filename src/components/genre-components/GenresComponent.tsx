@@ -17,6 +17,7 @@ const GenresComponent = () => {
     if (error) return (<div>Помилка завантаження</div>)
     return (
         <div>
+            <p>Genre: </p>
             {
                 genre.map(item =>  {
                     const Active = selectedGenreId === String(item.id)
