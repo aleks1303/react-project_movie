@@ -6,7 +6,7 @@ import MovieComponent from "./MovieComponent.tsx";
 import {useSearchParams} from "react-router-dom";
 
 const MoviesComponents = () => {
-    const {movie, loading, error} = useAppSelector(({movieSlice}) => movieSlice);
+    const {movies, loading, error} = useAppSelector(({movieSlice}) => movieSlice);
     const dispatch = useAppDispatch();
     const [query] = useSearchParams();
     const page = query.get('page') || '1'
@@ -16,8 +16,6 @@ const MoviesComponents = () => {
     }, [genreId, page, dispatch]);
 
     return (
-
-
         <>
             <div>
                 {loading && <p>Завантаження...</p>}
@@ -26,7 +24,7 @@ const MoviesComponents = () => {
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mt-2.5">
 
-                {movie.map(item => (<MovieComponent key={item.id} item={item}/>))}
+                { movies.map(item => (<MovieComponent key={item.id} item={item}/>))}
 
             </div>
         </>

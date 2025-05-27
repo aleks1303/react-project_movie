@@ -15,9 +15,6 @@ const GenresComponent = () => {
     }, [ dispatch]);
     if (loading) return (<div>Завантаження...</div>)
     if (error) return (<div>Помилка завантаження</div>)
-    if (!Array.isArray(genre)) return <div>Некоректні дані про жанри</div>
-    console.log(genre)
-
     return (
         <div  className="h-[calc(100vh-100px)] overflow-y-auto bg-white p-4">
 

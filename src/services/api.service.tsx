@@ -25,8 +25,9 @@ const movieService = {
         const { data: { results } } = await axiosInstance.get(url);
         return results;
     },
-    getMovieById: async (id:number):Promise<IMovies> => {
-      return await axiosInstance.get(`/movie/${id}?api_key=${apiKey}`)
+    getMovieById: async (id:string):Promise<IMovies> => {
+      const {data} = await axiosInstance.get(`/movie/${id}?api_key=${apiKey}`)
+        return data
     },
     getAllGenres: async (): Promise<IGenres[]> => {
         const { data: {genres} } = await axiosInstance.get(`/genre/movie/list?api_key=${apiKey}`);

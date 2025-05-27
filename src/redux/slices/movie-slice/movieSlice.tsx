@@ -3,13 +3,15 @@ import {movieService} from "../../../services/api.service.tsx";
 import type {IMovies} from "../../../models/IMovies/IMovies.ts";
 
 type movieSliceType = {
-    movie: IMovies[],
+    movie: IMovies | null
+    movies: IMovies[],
     loading:boolean,
     error: string | null
 }
 
 const initMovieSlice: movieSliceType = {
-    movie: [],
+    movie: null,
+    movies: [],
     loading:false,
     error: null
 }
@@ -26,6 +28,17 @@ const loadMovie = createAsyncThunk(
     }
 )
 
+const loadMovieDetails = createAsyncThunk(
+    "movieSlice/loadMovieDetails",
+    async (id: string, thunkAPI) => {
+        try {
+            const response = await movieService.getMovieById(id);
+            return thunkAPI.fulfillWithValue(response);
+        } catch (e) {
+            return thunkAPI.rejectWithValue(e);
+        }
+    }
+);
 
 export const movieSlice = createSlice({
     name: "movieSlice",
@@ -39,6 +52,11 @@ export const movieSlice = createSlice({
         })
         .addCase(loadMovie.fulfilled, (state, action: PayloadAction<IMovies[]>) => {
             state.loading = false
+            state.movies = action.payload
+
+        })
+        .addCase(loadMovieDetails.fulfilled, (state, action: PayloadAction<IMovies>) => {
+            state.loading = false
             state.movie = action.payload
 
         })
@@ -50,5 +68,5 @@ export const movieSlice = createSlice({
 
 
 export const movieSliceActions = {
-    ...movieSlice.actions, loadMovie
+    ...movieSlice.actions, loadMovie, loadMovieDetails
 }
