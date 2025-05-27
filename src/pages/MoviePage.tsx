@@ -12,8 +12,8 @@ const MoviePage = () => {
 
     return (
         <div className={"h-screen flex flex-col"}>
-            <div className={'sticky top-0 z-20 bg-white shadow-md px-4 py-2 flex justify-between items-center'}>
-                <div><MenuComponent/></div>
+            <div className={'sticky top-0 z-20 bg-white shadow-md px-4 py-2 flex justify-between'}>
+                <div className={'mt-4'}><MenuComponent/></div>
                 <div><SearchComponent/></div>
 
             </div>
@@ -21,9 +21,9 @@ const MoviePage = () => {
                 <PaginationComponent/>
             </div>
             {!query && (
-                <div className={"flex flex-1 overflow-hidden"}>
+                <div className="flex flex-1 overflow-y-auto">
                     <div className={"w-1/5 overflow-y-auto border-r p-4 bg-gray-100"}><GenresComponent/></div>
-                    <div className={"flex-1 overflow-y-scroll p-4"}><MoviesComponents/></div>
+                    <div className={"flex-1 overflow-y-scroll p-4 m-4"}><MoviesComponents/></div>
                 </div>
             )}
         </div>

@@ -8,20 +8,6 @@ const PaginationComponent = () => {
     const numberPage = Number(page);
     const totalPage = 500
 
-    // const onClickPrev = () => {
-    //     if (page) {
-    //         let currencyPage = Number(page)
-    //         currencyPage--
-    //         setQuery({page: currencyPage.toString()})
-    //     }
-    // }
-    // const onClickNext = () => {
-    //     if (page) {
-    //         let currencyPage = Number(page)
-    //         currencyPage++
-    //         setQuery({page: currencyPage.toString()})
-    //     }
-    // }
     const onClickPrev = () => {
         if (page) {
             const currentPage = Number(page);

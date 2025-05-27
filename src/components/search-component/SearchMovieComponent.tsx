@@ -22,7 +22,7 @@ const SearchComponent = () => {
 
     return (
         <div className="p-4">
-            <form onSubmit={onSearch} className="flex items-center gap-2 mb-4">
+            <form onSubmit={onSearch} className="flex items-center gap-2 justify-end mb-4">
                 <input
                     type="text"
                     name="search"
@@ -34,13 +34,13 @@ const SearchComponent = () => {
                     Шукати
                 </button>
             </form>
-
+            <hr/>
             {loading && <p>Завантаження...</p>}
             {error && <p className="text-red-500">Помилка: {error}</p>}
             {!loading && query && movie.length === 0 && <p>Нічого не знайдено</p>}
 
             {query && (
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
                     {movie.map(movie => (
                         <MovieComponent key={movie.id} item={movie} />
                     ))}

@@ -1,9 +1,9 @@
 import {createAsyncThunk, createSlice, type PayloadAction} from "@reduxjs/toolkit";
-import type {IMovie} from "../../../models/IMovie.ts";
 import {movieService} from "../../../services/api.service.tsx";
+import type {IMovies} from "../../../models/IMovies/IMovies.ts";
 
 type movieSliceType = {
-    movie: IMovie[],
+    movie: IMovies[],
     loading:boolean,
     error: string | null
 }
@@ -37,7 +37,7 @@ export const movieSlice = createSlice({
             state.loading = true
             state.error = null
         })
-        .addCase(loadMovie.fulfilled, (state, action: PayloadAction<IMovie[]>) => {
+        .addCase(loadMovie.fulfilled, (state, action: PayloadAction<IMovies[]>) => {
             state.loading = false
             state.movie = action.payload
 

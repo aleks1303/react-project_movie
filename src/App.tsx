@@ -9,7 +9,7 @@ import {movieService} from "./services/api.service.tsx";
 function App() {
     const [movie, setMovie] = useState<IMovie[]>([])
     useEffect(() => {
-        movieService.getMovie()
+        movieService.getAllMovie()
             .then(response => setMovie(response))
     }, []);
     console.log(movie)

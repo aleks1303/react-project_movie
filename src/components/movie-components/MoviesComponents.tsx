@@ -24,7 +24,7 @@ const MoviesComponents = () => {
                 {error && <div>Помилка: {error}</div>}
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mt-2.5">
 
                 {movie.map(item => (<MovieComponent key={item.id} item={item}/>))}
 
