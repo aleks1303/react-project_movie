@@ -18,17 +18,17 @@ const MovieComponent:FC<PropsMovieType> = ({item}) => {
     return (
         <div className={'border-1 rounded-t-md'}>
             <Link  to={`movie/details/${item.id}`} state={item}>
-                <div>
+                <div className={'bg-black text-white h-full'}>
                     <img className={'w-100'} src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
                          alt={item.title}/>
                     <p className={'text-xl pl-2'}>{item.title}</p>
-                    <p className={'text-sm pl-2 flex flex-wrap'}>{genreNames.map((name, index) => <GenreName key={index} name={name}/>)}</p>
-                    <div className="mt-2 pl-2 flex"><StarsRating item={item.vote_average}/>
-                        <p className={'flex ml-1'}>
-                            <img src="../../../public/icons/icons8-like-24.png" alt="icon"/>
-                            <span className={'text-sm pt-1 ml-1'}>{item.vote_count}</span>
-                        </p>
-                    </div>
+                    <p className={'text-sm pl-2 flex flex-wrap'}>{genreNames.map((name, index) => <GenreName key={index}
+                                                                                                             name={name}/>)}</p>
+                    <p className="mt-2 pl-2"><StarsRating item={item.vote_average}/></p>
+                    <p className={'flex ml-2'}>
+                        <img className={'w-4 h-4 mt-1'} src="../../../public/icons/icons8-white-like-24.png" alt="icon"/>
+                        <span className={'text-sm pt-1 ml-1'}>{item.vote_count}</span>
+                    </p>
                 </div>
             </Link>
         </div>

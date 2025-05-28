@@ -4,6 +4,7 @@ import {searchMovieSliceActions} from "../../redux/slices/searchMovie-slice/sear
 import {useSearchParams} from "react-router-dom";
 import MovieComponent from "../movie-components/MovieComponent.tsx";
 import type {FormEvent} from "react";
+import UserComponent from "../user-component/UserComponent.tsx";
 
 const SearchComponent = () => {
     const dispatch = useAppDispatch();
@@ -21,20 +22,23 @@ const SearchComponent = () => {
     };
 
     return (
-        <div className="p-4">
-            <form onSubmit={onSearch} className="flex items-center gap-2 justify-end mb-4">
-                <input
-                    type="text"
-                    name="search"
-                    defaultValue={query}
-                    placeholder="Пошук фільмів..."
-                    className="border rounded p-2 w-64"
-                />
-                <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
-                    Шукати
-                </button>
-            </form>
-            <hr/>
+        <div className="p-4" >
+            <div className={'flex justify-end'}>
+                <form onSubmit={onSearch} className="flex items-center gap-2 justify-end mb-4">
+                    <input
+                        type="text"
+                        name="search"
+                        defaultValue={query}
+                        placeholder="Пошук фільмів..."
+                        className="border bg-white rounded p-2 w-64"
+                    />
+                    <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+                        Шукати
+                    </button>
+                </form>
+                <UserComponent/>
+            </div>
+
             {loading && <p>Завантаження...</p>}
             {error && <p className="text-red-500">Помилка: {error}</p>}
             {!loading && query && movie.length === 0 && <p>Нічого не знайдено</p>}
@@ -46,6 +50,7 @@ const SearchComponent = () => {
                     ))}
                 </div>
             )}
+
         </div>
     );
 };

@@ -1,4 +1,3 @@
-
 import {useSearchParams} from "react-router-dom";
 import MoviesComponents from "../components/movie-components/MoviesComponents.tsx";
 import PaginationComponent from "../components/pagination-component/PaginationComponent.tsx";
@@ -12,12 +11,14 @@ const MoviePage = () => {
 
     return (
         <div className={"h-screen flex flex-col"}>
-            <div className={'sticky top-0 z-20 bg-white shadow-md px-4 py-2 flex justify-between'}>
-                <div className={'mt-4'}><MenuComponent/></div>
+            <div className={'sticky top-0 z-20 bg-gray-300 shadow-md px-4 py-2 flex justify-between'}>
+                <div className={'mt-4'}>
+                    <MenuComponent/>
+                </div>
                 <div><SearchComponent/></div>
 
             </div>
-            <div className={"sticky top-[60px] z-10 bg-white py-2 justify-center flex"}>
+            <div className={"sticky top-[60px] z-10 bg-gray-200 py-2 justify-center flex"}>
                 <PaginationComponent/>
             </div>
             {!query && (

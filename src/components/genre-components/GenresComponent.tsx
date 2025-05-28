@@ -16,7 +16,7 @@ const GenresComponent = () => {
     if (loading) return (<div>Завантаження...</div>)
     if (error) return (<div>Помилка завантаження</div>)
     return (
-        <div className="h-[calc(100vh-100px)] overflow-y-auto bg-white p-4">
+        <div className="h-[calc(100vh-100px)] overflow-y-auto bg-black text-white p-4">
 
             {genre.length === 0 && <p>Жанри поки не завантажені</p>}
             <p>Genre: </p>
@@ -28,7 +28,7 @@ const GenresComponent = () => {
                     return (
                         <p key={item.id}>
                             <Link state={item} to={`/?genre=${item.id}&page=1`}
-                                  className={`  ${Active ? 'text-blue-600 underline' : 'text-black bg-white'}`}>
+                                  className={`  ${Active ? 'text-blue-400 underline' : 'bg-black text-white'}`}>
                                 {item.name}
                             </Link>
                         </p>)
