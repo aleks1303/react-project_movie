@@ -24,7 +24,7 @@ const MoviesComponents = () => {
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mt-2.5">
 
-                { movies.map(item => (<MovieComponent key={item.id} item={item}/>))}
+                {movies.map(item => (<MovieComponent key={item.id} item={item}/>))}
 
             </div>
         </>

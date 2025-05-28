@@ -1,13 +1,12 @@
-
 import { Star } from "lucide-react";
 import type {FC} from "react";
 
 type Props = {
-    item: number; // Наприклад: 7.3
+    item: number;
 };
 
 const StarsRating: FC<Props> = ({ item }) => {
-    const starsCount = Math.round(item); // бо TMDB дає від 0 до 10, а ми показуємо 5 зірок
+    const starsCount = Math.round(item);
 
     return (
         <span className="flex items-center gap-1 text-yellow-400">

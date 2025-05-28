@@ -46,7 +46,10 @@ export const movieSlice = createSlice({
     reducers: {},
     extraReducers: builder => builder
         .addCase(loadMovie.pending, (state) => {
-
+            state.loading = true
+            state.error = null
+        })
+        .addCase(loadMovieDetails.pending, (state) => {
             state.loading = true
             state.error = null
         })
@@ -61,6 +64,10 @@ export const movieSlice = createSlice({
 
         })
         .addCase(loadMovie.rejected, (state, action) => {
+            state.loading = false
+            state.error = action.error.message || "Unknown error"
+        })
+        .addCase(loadMovieDetails.rejected, (state, action) => {
             state.loading = false
             state.error = action.error.message || "Unknown error"
         })

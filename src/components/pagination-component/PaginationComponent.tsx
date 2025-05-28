@@ -12,13 +12,10 @@ const PaginationComponent = () => {
         if (page) {
             const currentPage = Number(page);
             const newPage = currentPage - 1;
-
             const newParams: Record<string, string> = {
                 page: newPage.toString(),
             };
-
             if (genre) newParams.genre = genre;
-
             setQuery(newParams);
         }
     };
@@ -33,7 +30,6 @@ const PaginationComponent = () => {
             };
 
             if (genre) newParams.genre = genre;
-
             setQuery(newParams);
         }
     };
@@ -41,8 +37,12 @@ const PaginationComponent = () => {
     const buttonClassDisabled = 'opacity-30 cursor-not-allowed'
     return (
         <div>
-            <button className={`${buttonClass} ${numberPage <= 1 ? buttonClassDisabled : ''}`} disabled={numberPage <= 1 } onClick={onClickPrev}>prev</button>
-            <button className={`${buttonClass} ${numberPage >= totalPage ? buttonClassDisabled : ''}`} disabled={numberPage >= totalPage} onClick={onClickNext}>next</button>
+            <button className={`${buttonClass} ${numberPage <= 1 ? buttonClassDisabled : ''}`}
+                    disabled={numberPage <= 1} onClick={onClickPrev}>prev
+            </button>
+            <button className={`${buttonClass} ${numberPage >= totalPage ? buttonClassDisabled : ''}`}
+                    disabled={numberPage >= totalPage} onClick={onClickNext}>next
+            </button>
         </div>
     );
 };

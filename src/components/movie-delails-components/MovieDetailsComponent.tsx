@@ -6,7 +6,6 @@ import {useAppSelector} from "../../redux/hooks/useAppSelector.ts";
 import {movieSliceActions} from "../../redux/slices/movie-slice/movieSlice.tsx";
 
 
-
 const MovieDetailsComponent = () => {
     const {id} = useParams();
     const dispatch = useAppDispatch();
@@ -22,7 +21,7 @@ const MovieDetailsComponent = () => {
 
     return (
         <div className="p-6 bg-orange-50 flex gap-6">
-            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="w-80" />
+            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="w-80"/>
             <div>
                 <h1 className="text-4xl underline">{movie.title}</h1>
                 <div className="mt-2 flex gap-2 flex-wrap">

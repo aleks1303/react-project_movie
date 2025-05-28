@@ -1,13 +1,13 @@
-import { useAppDispatch } from "../../redux/hooks/useAppDispatch.ts";
-import { useAppSelector } from "../../redux/hooks/useAppSelector.ts";
-import { searchMovieSliceActions } from "../../redux/slices/searchMovie-slice/searchMovieSlice.tsx";
-import { useSearchParams } from "react-router-dom";
+import {useAppDispatch} from "../../redux/hooks/useAppDispatch.ts";
+import {useAppSelector} from "../../redux/hooks/useAppSelector.ts";
+import {searchMovieSliceActions} from "../../redux/slices/searchMovie-slice/searchMovieSlice.tsx";
+import {useSearchParams} from "react-router-dom";
 import MovieComponent from "../movie-components/MovieComponent.tsx";
 import type {FormEvent} from "react";
 
 const SearchComponent = () => {
     const dispatch = useAppDispatch();
-    const { movie, loading, error } = useAppSelector(({ searchMovieSlice }) => searchMovieSlice);
+    const {movie, loading, error} = useAppSelector(({searchMovieSlice}) => searchMovieSlice);
     const [queryParams, setQueryParams] = useSearchParams();
     const query = queryParams.get("query") || "";
 
@@ -15,8 +15,8 @@ const SearchComponent = () => {
         e.preventDefault();
         const input = (e.target as HTMLFormElement).search.value;
         if (input.trim()) {
-            setQueryParams({ query: input, page: '1' });
-            dispatch(searchMovieSliceActions.searchMovies({ query: input, page: '1' }));
+            setQueryParams({query: input, page: '1'});
+            dispatch(searchMovieSliceActions.searchMovies({query: input, page: '1'}));
         }
     };
 
@@ -42,7 +42,7 @@ const SearchComponent = () => {
             {query && (
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
                     {movie.map(movie => (
-                        <MovieComponent key={movie.id} item={movie} />
+                        <MovieComponent key={movie.id} item={movie}/>
                     ))}
                 </div>
             )}

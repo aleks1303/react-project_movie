@@ -9,6 +9,7 @@ export interface IMovies {
     belongs_to_collection?: number;
     budget: number;
     genres: IGenres[];
+    genre_ids: number[];
     homepage: string;
     id: number;
     imdb_id: string;
