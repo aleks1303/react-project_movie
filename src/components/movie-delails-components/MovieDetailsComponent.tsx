@@ -4,6 +4,8 @@ import {useEffect} from "react";
 import {useAppDispatch} from "../../redux/hooks/useAppDispatch.ts";
 import {useAppSelector} from "../../redux/hooks/useAppSelector.ts";
 import {movieSliceActions} from "../../redux/slices/movie-slice/movieSlice.tsx";
+import CountryProductComponent from "./CountryProductComponent.tsx";
+import CompanyComponent from "./CompanyComponent.tsx";
 
 
 const MovieDetailsComponent = () => {
@@ -20,19 +22,32 @@ const MovieDetailsComponent = () => {
     if (!movie) return <div>Фільм не знайдено</div>;
 
     return (
-        <div className="p-6 bg-orange-50 flex gap-6">
-            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="w-80"/>
+        <div className={"p-3 bg-orange-50 flex gap-6"}>
+            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="w-125"/>
             <div>
-                <h1 className="text-4xl underline">{movie.title}</h1>
-                <div className="mt-2 flex gap-2 flex-wrap">
+                <h1 className={"text-4xl underline"}>{movie.title}</h1>
+                <div className={"mt-2 flex gap-2 flex-wrap"}>
                     {movie.genres.map(g => (
-                        <span key={g.id} className="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
+                        <span key={g.id} className={"text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded-full"}>
                             {g.name}
                         </span>
                     ))}
                 </div>
-                <div className="mt-4"><StarsRating item={movie.vote_average}/></div>
-                <p>{movie.budget}</p>
+                <div className={"mt-4 flex"}>
+                    <StarsRating item={movie.vote_average}/>
+                    <p className={'flex ml-4'}>
+                        <img src="../../../public/icons/icons8-like-24.png" alt="icon"/>
+                        <span className={'text-sm pt-1 ml-1'}>{movie.vote_count}</span>
+                    </p>
+                </div>
+
+                <div className={"mt-4 bg-orange-100"}>Description:<p>{movie.overview}</p></div>
+                <p className={'mt-4'}>Budget: {movie.budget}</p>
+                <p className={'mt-4 bg-orange-100'}>Country: {movie.production_countries.map((country, index) =>
+                    (<CountryProductComponent key={index} country={country}/>))}</p>
+                <p className={'mt-4'}>Product: {movie.production_companies.map(company =>
+                    (<CompanyComponent key={company.id} company={company}/>))}</p>
+                <p></p>
             </div>
         </div>
     );

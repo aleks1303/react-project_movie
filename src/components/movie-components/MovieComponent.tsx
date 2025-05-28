@@ -23,7 +23,12 @@ const MovieComponent:FC<PropsMovieType> = ({item}) => {
                          alt={item.title}/>
                     <p className={'text-xl pl-2'}>{item.title}</p>
                     <p className={'text-sm pl-2 flex flex-wrap'}>{genreNames.map((name, index) => <GenreName key={index} name={name}/>)}</p>
-                    <p className="mt-2 pl-2" ><StarsRating item={item.vote_average}/></p>
+                    <div className="mt-2 pl-2 flex"><StarsRating item={item.vote_average}/>
+                        <p className={'flex ml-1'}>
+                            <img src="../../../public/icons/icons8-like-24.png" alt="icon"/>
+                            <span className={'text-sm pt-1 ml-1'}>{item.vote_count}</span>
+                        </p>
+                    </div>
                 </div>
             </Link>
         </div>
