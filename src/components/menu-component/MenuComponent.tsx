@@ -5,7 +5,7 @@ const MenuComponent = () => {
     return (
         <div>
             <ul>
-                <li className={'m-2'} ><Link to={'/?page=1'}>Home</Link></li>
+                <li className={'m-2'}><Link to={'/?page=1'}>Home</Link></li>
             </ul>
         </div>
     );

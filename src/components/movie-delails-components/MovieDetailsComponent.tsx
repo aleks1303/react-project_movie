@@ -44,7 +44,7 @@ const MovieDetailsComponent = () => {
                 </div>
                 <div className={"mt-4 bg-gray-300"}>Description:<p>{movie.overview}</p></div>
                 <p className={'mt-4'}>Budget: {movie.budget} $</p>
-                <p >Revenue: {movie.revenue} $</p>
+                <p>Revenue: {movie.revenue} $</p>
                 <p className={'mt-4 bg-gray-300'}>Country: {movie.production_countries.map((country, index) =>
                     (<CountryProductComponent key={index} country={country}/>))}</p>
                 <p className={'mt-4'}>Product: {movie.production_companies.map(company =>

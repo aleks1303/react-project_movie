@@ -5,7 +5,7 @@ type PropsCompanyType = {
     company: IProduction_companies
 }
 
-const CompanyComponent:FC<PropsCompanyType> = ({company}) => {
+const CompanyComponent: FC<PropsCompanyType> = ({company}) => {
     return (
         <span className={'mr-2'}>
             {company.name};

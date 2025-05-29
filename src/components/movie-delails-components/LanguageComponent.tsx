@@ -5,7 +5,7 @@ type PropsLanguageType = {
     language: ISpoken_language
 }
 
-const LanguageComponent:FC<PropsLanguageType> = ({language}) => {
+const LanguageComponent: FC<PropsLanguageType> = ({language}) => {
     return (
         <span className={'mr-2'}>
             {language.name};

@@ -22,7 +22,7 @@ const SearchComponent = () => {
     };
 
     return (
-        <div className="p-4" >
+        <div className="p-4">
             <div className={'flex justify-end'}>
                 <form onSubmit={onSearch} className="flex items-center gap-2 justify-end mb-4">
                     <input

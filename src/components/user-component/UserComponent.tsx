@@ -1,5 +1,3 @@
-
-
 const UserComponent = () => {
     return (
         <div>

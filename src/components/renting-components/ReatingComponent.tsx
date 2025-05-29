@@ -1,16 +1,16 @@
-import { Star } from "lucide-react";
+import {Star} from "lucide-react";
 import type {FC} from "react";
 
 type Props = {
     item: number;
 };
 
-const StarsRating: FC<Props> = ({ item }) => {
+const StarsRating: FC<Props> = ({item}) => {
     const starsCount = Math.round(item);
 
     return (
         <span className="flex items-center gap-1 text-yellow-400">
-            {Array.from({ length: 10 }).map((_, i) => (
+            {Array.from({length: 10}).map((_, i) => (
                 <Star key={i} className={`w-3 h-3 ${i < starsCount ? "fill-yellow-400" : "fill-gray-300"}`}
                 />
             ))}
