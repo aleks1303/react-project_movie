@@ -3,7 +3,8 @@ import type {IMovies} from "../models/IMovies/IMovies.ts";
 import type {IGenres} from "../models/IMovies/IGenres.ts";
 
 
-const apiKey = import.meta.env.VITE_TMDB_API_KEY
+//const apiKey = import.meta.env.VITE_TMDB_API_KEY
+const apiKey = 'e90f9f721c8396852fbd2dd897502577'
 
 const axiosInstance = axios.create({
     baseURL: 'https://api.themoviedb.org/3',
