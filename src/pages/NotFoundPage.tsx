@@ -1,8 +1,6 @@
-
-
 const NotFoundPage = () => {
     return (
-        <div>
+        <div className={'flex justify-center h-screen text-6xl'}>
             Page 404
         </div>
     );

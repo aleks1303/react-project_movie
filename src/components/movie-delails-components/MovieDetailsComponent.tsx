@@ -24,7 +24,7 @@ const MovieDetailsComponent = () => {
 
     return (
         <div className={"p-3 bg-gray-100 flex gap-6"}>
-            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="w-125"/>
+            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="w-120"/>
             <div>
                 <h1 className={"text-4xl underline"}>{movie.title}</h1>
                 <p>{movie.tagline}</p>

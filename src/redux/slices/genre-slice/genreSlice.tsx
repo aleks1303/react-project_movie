@@ -14,18 +14,18 @@ const initGenreSlice: genreSliceType = {
     error: null
 }
 
- const loadGenre = createAsyncThunk(
-     "genreSlice/loadGenre",
-     async (_, thunkAPI) => {
-         try {
-             const genre = await movieService.getAllGenres()
-             console.log(genre)
-             return thunkAPI.fulfillWithValue(genre)
-         } catch (e) {
-             return thunkAPI.rejectWithValue(e)
-         }
-     }
- );
+const loadGenre = createAsyncThunk(
+    "genreSlice/loadGenre",
+    async (_, thunkAPI) => {
+        try {
+            const genre = await movieService.getAllGenres()
+            console.log(genre)
+            return thunkAPI.fulfillWithValue(genre)
+        } catch (e) {
+            return thunkAPI.rejectWithValue(e)
+        }
+    }
+);
 
 
 export const genreSlice = createSlice({
@@ -37,7 +37,7 @@ export const genreSlice = createSlice({
             state.loading = true
             state.error = null
         })
-        .addCase(loadGenre.fulfilled, (state, action:PayloadAction<IGenres[]>) => {
+        .addCase(loadGenre.fulfilled, (state, action: PayloadAction<IGenres[]>) => {
             state.loading = false
             state.genre = action.payload
         })

@@ -5,26 +5,26 @@ import type {IMovies} from "../../../models/IMovies/IMovies.ts";
 type movieSliceType = {
     movie: IMovies | null
     movies: IMovies[],
-    loading:boolean,
+    loading: boolean,
     error: string | null
 }
 
 const initMovieSlice: movieSliceType = {
     movie: null,
     movies: [],
-    loading:false,
+    loading: false,
     error: null
 }
 
 const loadMovie = createAsyncThunk(
     "movieSlice/loadMovie",
-   async ({ page, genreId }: { page: string, genreId?: string }, thunkAPI) => {
-     try {
-         const movie = await movieService.getAllMovies(page, genreId)
-         return (movie)
-     }catch (e) {
-         return thunkAPI.rejectWithValue(e);
-     }
+    async ({page, genreId}: { page: string, genreId?: string }, thunkAPI) => {
+        try {
+            const movie = await movieService.getAllMovies(page, genreId)
+            return (movie)
+        } catch (e) {
+            return thunkAPI.rejectWithValue(e);
+        }
     }
 )
 
