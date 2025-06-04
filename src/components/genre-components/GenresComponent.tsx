@@ -23,7 +23,6 @@ const GenresComponent = () => {
             {
                 genre.map(item => {
                     const Active = selectedGenreId === String(item.id)
-                    console.log(item.name)
 
                     return (
                         <p key={item.id}>

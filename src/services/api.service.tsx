@@ -31,7 +31,6 @@ const movieService = {
     },
     getAllGenres: async (): Promise<IGenres[]> => {
         const {data: {genres}} = await axiosInstance.get(`/genre/movie/list?api_key=${apiKey}`);
-        console.log(genres)
         return genres;
     },
     getMoviesByGenre: async (genreId: number): Promise<IMovies[]> => {

@@ -14,7 +14,6 @@ const MovieComponent: FC<PropsMovieType> = ({item}) => {
         const genres = genre.find(g => g.id === id);
         return genres ? genres.name : "Unknown";
     });
-    console.log(genreNames)
     return (
         <div className={'border-1 rounded-t-md'}>
             <Link to={`movie/details/${item.id}`} state={item}>

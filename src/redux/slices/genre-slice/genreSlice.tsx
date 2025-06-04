@@ -19,7 +19,6 @@ const loadGenre = createAsyncThunk(
     async (_, thunkAPI) => {
         try {
             const genre = await movieService.getAllGenres()
-            console.log(genre)
             return thunkAPI.fulfillWithValue(genre)
         } catch (e) {
             return thunkAPI.rejectWithValue(e)
