@@ -2,7 +2,6 @@ import axios from "axios";
 import type {IMovies} from "../models/IMovies/IMovies.ts";
 import type {IGenres} from "../models/IMovies/IGenres.ts";
 
-
 const apiKey = import.meta.env.VITE_TMDB_API_KEY
 
 const axiosInstance = axios.create({
