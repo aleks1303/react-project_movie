@@ -38,7 +38,7 @@ const MovieDetailsComponent = () => {
                 <div className={"mt-4 flex"}>
                     <StarsRating item={movie.vote_average}/>
                     <p className={'flex ml-4'}>
-                        <img className={'w-5 h-5'} src="../../../public/icons/icons8-like-24.png" alt="icon"/>
+                        <img className={'w-5 h-5'} src="/icons/icons8-like-24.png" alt="icon"/>
                         <span className={'text-sm ml-1'}>{movie.vote_count}</span>
                     </p>
                 </div>

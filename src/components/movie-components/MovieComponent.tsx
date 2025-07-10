@@ -25,7 +25,7 @@ const MovieComponent: FC<PropsMovieType> = ({item}) => {
                                                                                                              name={name}/>)}</p>
                     <p className="mt-2 pl-2"><StarsRating item={item.vote_average}/></p>
                     <p className={'flex ml-2'}>
-                        <img className={'w-4 h-4 mt-1'} src="../../../public/icons/icons8-white-like-24.png"
+                        <img className={'w-4 h-4 mt-1'} src="/icons/icons8-white-like-24.png"
                              alt="icon"/>
                         <span className={'text-sm pt-1 ml-1'}>{item.vote_count}</span>
                     </p>
